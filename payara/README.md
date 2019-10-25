@@ -9,13 +9,13 @@ The images here are part of my maven archetype setup
 # Usage
 
 ```bash
-docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.192
+docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.193
 ```
 
 or in interactive mode: 
 
 ```bash
-docker run -it --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.192
+docker run -it --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.193
 ```
 
 This will run the server with all the relevant ports exposed and the ./artifact folder mounted to the inner /autodeploy folder.
