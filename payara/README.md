@@ -51,3 +51,10 @@ If you do not want to expose the admin console you can just omit to expose port 
 For the Dockerfile definitions please look here:
 
 * [ivonet-docker-images](https://github.com/IvoNet/ivonet-docker-images)
+
+
+# ToDo
+
+* run payara under user other than root
+* create production version without autodeploy
+* 
