@@ -1,21 +1,21 @@
 # Payara Full server
 
 
-The ful profile [Payara 5](https://www.payara.fish/) application server on a centos 7 java 1.8.0_191 base.
+The ful profile [Payara 5](https://www.payara.fish/) application server on a centos 7 java 11.0.3 base.
 
-The images here are part of my maven archetype setup TODO
+The images here are part of my maven archetype setup
 
 
 # Usage
 
 ```bash
-docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.184
+docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.192
 ```
 
 or in interactive mode: 
 
 ```bash
-docker run -it --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.184
+docker run -it --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/autodeploy ivonet/payara:5.192
 ```
 
 This will run the server with all the relevant ports exposed and the ./artifact folder mounted to the inner /autodeploy folder.
@@ -53,8 +53,3 @@ For the Dockerfile definitions please look here:
 * [ivonet-docker-images](https://github.com/IvoNet/ivonet-docker-images)
 
 
-# ToDo
-
-* run payara under user other than root
-* create production version without autodeploy
-* 
