@@ -12,10 +12,22 @@ RUN useradd -b /opt -m -s /bin/sh -d ${INSTALL_DIR} serveradmin \
 RUN curl -o ${INSTALL_DIR}/${PAYARA_ARCHIVE}.zip -L https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/5.183/payara-5.183.zip \
  && unzip ${INSTALL_DIR}/${PAYARA_ARCHIVE}.zip -d ${INSTALL_DIR} \
  && rm ${INSTALL_DIR}/${PAYARA_ARCHIVE}.zip \
- && ln -s /autodeploy ${DEPLOYMENT_DIR} \
+ && ln -s /autodeploy ${DEPLOYMENT_DIR}
+RUN asadmin start-domain -d \
+ && echo "AS_ADMIN_PASSWORD=">pwd.txt \
+ && echo "AS_ADMIN_NEWPASSWORD=${AS_ADMIN_NEWPASSWORD}">>pwd.txt \
+ && cat pwd.txt \
+ && asadmin --host localhost --port 4848 --user admin --passwordfile pwd.txt change-admin-password \
+ && echo "AS_ADMIN_PASSWORD=${AS_ADMIN_NEWPASSWORD}">pwd.txt \
+ && cat pwd.txt \
+ && asadmin --host localhost --port 4848 --user admin --passwordfile pwd.txt enable-secure-admin \
+ && echo "https://stackoverflow.com/questions/46334485/glassfish4-jmx-configuration-using-asadmin" \
+ && asadmin --host localhost --port 4848 --user admin --passwordfile pwd.txt set configs.config.default-config.admin-service.jmx-connector.system.address=127.0.0.1 \
+ && asadmin --host localhost --port 4848 --user admin --passwordfile pwd.txt set configs.config.default-config.admin-service.jmx-connector.system.security-enabled=false \
+ && rm -f pwd.txt \
+ && asadmin stop-domain \
  && chown -R serveradmin:serveradmin /opt \
  && chmod -R a+rw /opt
-
 USER serveradmin
 WORKDIR /autodeploy
 ENTRYPOINT ["asadmin", "start-domain", "--verbose"]
