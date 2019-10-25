@@ -1,6 +1,6 @@
 FROM ivonet/centos-jdk:7-11.0.3
 LABEL maintainer="Ivo Woltring, ivonet.nl" description="Payara 5 Server Full"
-ENV PAYARA_VERSION 5.193
+ENV PAYARA_VERSION 5.193.1
 ENV PAYARA_ARCHIVE payara5
 ENV DOMAIN_NAME domain1
 ENV INSTALL_DIR /opt
