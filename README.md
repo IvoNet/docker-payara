@@ -1,7 +1,7 @@
 # Payara Full server
 
 
-The ful profile [Payara 5](https://www.payara.fish/) application server on a centos 7 java 11.0.3 base.
+The full profile [Payara 5](https://www.payara.fish/) application server on a centos 7 java 11.0.3 base.
 
 The images here are part of my maven archetype setup
 
@@ -15,7 +15,7 @@ docker run                                                                      
    -p 8080:8080                                                                 \
    -p 8181:8181                                                                 \
    -p 4848:4848                                                                 \
-   -e $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
+   -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
    ivonet/payara:5.193.1
 ```
 
@@ -28,7 +28,7 @@ docker run                                                                      
    -p 8080:8080                                                                 \
    -p 8181:8181                                                                 \
    -p 4848:4848                                                                 \
-   -e $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
+   -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
    ivonet/payara:5.193.1
 ```
 
