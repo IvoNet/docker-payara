@@ -46,7 +46,7 @@ e.g.
 
 ```bash
 echo "Starting parara with container name payara"
-docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy ivonet/payara:latest
+docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy ivonet/payara:latest
 echo "Changing admin password..."
 echo "Please follow instructions:"
 docker exec -it payara asadmin --user admin change-admin-password
@@ -57,12 +57,5 @@ Now the password has been changed for that container as long as that container l
 New containers based on this image will again have the default password.
 
 If you do not want to expose the admin console you can just omit to expose port 4848.
-
-
-## Dockerfiles
-
-For the Dockerfile definitions please look here:
-
-* [ivonet-docker-images](https://github.com/IvoNet/docker-payara)
 
 
