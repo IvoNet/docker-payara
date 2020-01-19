@@ -10,13 +10,13 @@ The images here are part of my maven archetype setup
 
 ```bash
 docker run                                                                      \
-   -d                                                                           \
-   --name payara                                                                \
-   -p 8080:8080                                                                 \
-   -p 8181:8181                                                                 \
-   -p 4848:4848                                                                 \
-   -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
-   ivonet/payara:5.194
+                         -d                                                                           \
+                         --name payara                                                                \
+                         -p 8080:8080                                                                 \
+                         -p 8181:8181                                                                 \
+                         -p 4848:4848                                                                 \
+                         -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
+                         ivonet/payara:5.194
 ```
 
 or in interactive mode: 
