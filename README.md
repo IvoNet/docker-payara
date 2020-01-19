@@ -16,7 +16,7 @@ docker run                                                                      
    -p 8181:8181                                                                 \
    -p 4848:4848                                                                 \
    -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
-   ivonet/payara:5.193.1
+   ivonet/payara:5.194
 ```
 
 or in interactive mode: 
@@ -29,7 +29,7 @@ docker run                                                                      
    -p 8181:8181                                                                 \
    -p 4848:4848                                                                 \
    -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
-   ivonet/payara:5.193.1
+   ivonet/payara:5.194
 ```
 
 This will run the server with all the relevant ports exposed and the ./artifact folder mounted to the inner `/opt/payara/payara5/glassfish/domains/domain1/autodeploy` folder.
