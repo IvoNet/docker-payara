@@ -1,6 +1,6 @@
 FROM ivonet/centos-jdk:7-11.0.3
 LABEL maintainer="Ivo Woltring, ivonet.nl" description="Payara 5 Server Full"
-ENV PAYARA_VERSION 5.194
+ENV PAYARA_VERSION 5.2022.1
 ENV PAYARA_ARCHIVE payara5
 ENV DOMAIN_NAME domain1
 ENV INSTALL_DIR /opt
@@ -17,7 +17,6 @@ RUN useradd -b /opt -m -s /bin/sh -d ${PAYARA_HOME} serveradmin \
 
 USER serveradmin
 WORKDIR ${PAYARA_HOME}
-
 RUN curl -s -o ${PAYARA_ARCHIVE}.zip -L https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/$PAYARA_VERSION/payara-$PAYARA_VERSION.zip \
  && unzip -qq ${PAYARA_ARCHIVE}.zip -d ./ \
  && rm -f ${PAYARA_ARCHIVE}.zip \
