@@ -1,22 +1,22 @@
 # Payara Full server
 
 
-The full profile [Payara 5](https://www.payara.fish/) application server on a centos 7 java 11.0.3 base.
+The full profile [Payara 5](https://www.payara.fish/) application server on a centos 7 java 11 base.
 
-The images here are part of my maven archetype setup
+The images here are part of my [maven archetype setup](https://ivonet.github.io/archetype/)
 
 
 # Usage
 
 ```bash
-docker run                                                                      \
-                         -d                                                                           \
-                         --name payara                                                                \
-                         -p 8080:8080                                                                 \
-                         -p 8181:8181                                                                 \
-                         -p 4848:4848                                                                 \
-                         -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
-                         ivonet/payara:5.194
+docker run                                                                       \
+    -d                                                                           \
+    --name payara                                                                \
+    -p 8080:8080                                                                 \
+    -p 8181:8181                                                                 \
+    -p 4848:4848                                                                 \
+    -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
+    ivonet/payara
 ```
 
 or in interactive mode: 
@@ -29,7 +29,7 @@ docker run                                                                      
    -p 8181:8181                                                                 \
    -p 4848:4848                                                                 \
    -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
-   ivonet/payara:5.194
+   ivonet/payara
 ```
 
 This will run the server with all the relevant ports exposed and the ./artifact folder mounted to the inner `/opt/payara/payara5/glassfish/domains/domain1/autodeploy` folder.
