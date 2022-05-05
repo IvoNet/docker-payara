@@ -5,6 +5,27 @@ The full profile [Payara 5](https://www.payara.fish/) application server on a ce
 
 The images here are part of my [maven archetype setup](https://ivonet.github.io/archetype/)
 
+# Exposed Ports
+
+| Port number | Description                                               |
+|:------------|:----------------------------------------------------------|
+| 8080        | internal address where the server runs                    |
+| 4848        | internal address where the admin panel can be accessed.   |
+| 8181        | internal address where the self signed https version runs |  
+
+# Volumes
+
+| Volume path                                      | Description                                                                                                     |
+|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|
+| /opt/payara/glassfish/domains/domain1/autodeploy | The auto deploy folder for web archives (war) can be accessed in a Dockerfile with the `${DEPLOY_DIR}` variable |
+
+# Environment variables
+
+| Variable name    | Description                                                                                   | Default      |
+|:-----------------|:----------------------------------------------------------------------------------------------|:-------------|
+| ADMIN_PASSWORD   | The admin password for [http://localhost:4848](http://localhost:4848). | \<generated> |
+
+
 
 # Usage
 
