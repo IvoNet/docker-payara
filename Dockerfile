@@ -13,6 +13,7 @@ RUN unzip payara-$PAYARA_VERSION.zip
 
 FROM eclipse-temurin:17-jdk-focal
 LABEL maintainer="Ivo Woltring, ivonet.nl" description="Payara 5 Server Full"
+
 ARG PASSWORD
 ENV PAYARA_ARCHIVE glassfish
 ENV DOMAIN_NAME domain1
