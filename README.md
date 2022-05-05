@@ -15,7 +15,7 @@ docker run                                                                      
     -p 8080:8080                                                                 \
     -p 8181:8181                                                                 \
     -p 4848:4848                                                                 \
-    -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
+    -v $(pwd)/artifact:/opt/payara/glassfish/domains/domain1/autodeploy  \
     ivonet/payara
 ```
 
@@ -28,7 +28,7 @@ docker run                                                                      
    -p 8080:8080                                                                 \
    -p 8181:8181                                                                 \
    -p 4848:4848                                                                 \
-   -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy  \
+   -v $(pwd)/artifact:/opt/payara/glassfish/domains/domain1/autodeploy  \
    ivonet/payara
 ```
 
