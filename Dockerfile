@@ -1,16 +1,14 @@
 FROM eclipse-temurin:17-jdk-focal as builder
 
-ENV PAYARA_VERSION 5.2022.2
-
 RUN apt-get update \
  && apt-get install --no-install-recommends -y unzip \
  && apt-get clean  \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+ENV PAYARA_VERSION 5.2022.2
+
 WORKDIR /opt
-
 ADD "https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/$PAYARA_VERSION/payara-$PAYARA_VERSION.zip" /opt/
-
 RUN unzip payara-$PAYARA_VERSION.zip
 
 FROM eclipse-temurin:17-jdk-focal
