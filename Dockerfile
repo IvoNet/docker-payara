@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11-jdk-focal as builder
+FROM eclipse-temurin:17-jdk-focal as builder
 
 RUN apt-get update \
  && apt-get install --no-install-recommends -y unzip \
@@ -11,7 +11,7 @@ WORKDIR /opt
 ADD "https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/$PAYARA_VERSION/payara-$PAYARA_VERSION.zip" /opt/
 RUN unzip payara-$PAYARA_VERSION.zip
 
-FROM eclipse-temurin:11-jdk-focal
+FROM eclipse-temurin:17-jdk-focal
 LABEL maintainer="Ivo Woltring, ivonet.nl" description="Payara 5 Server Full"
 ARG PASSWORD
 ENV PAYARA_ARCHIVE glassfish
