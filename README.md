@@ -30,12 +30,12 @@ The images here are part of my [maven archetype setup](https://ivonet.github.io/
 # Usage
 
 ```bash
-docker run                                                                       \
-    -d                                                                           \
-    --name payara                                                                \
-    -p 8080:8080                                                                 \
-    -p 8181:8181                                                                 \
-    -p 4848:4848                                                                 \
+docker run                                                               \
+    -d                                                                   \
+    --name payara                                                        \
+    -p 8080:8080                                                         \
+    -p 4848:4848                                                         \
+    -e ADMIN_PASSWORD=s3cr3t                                             \
     -v $(pwd)/artifact:/opt/payara/glassfish/domains/domain1/autodeploy  \
     ivonet/payara
 ```
@@ -43,12 +43,12 @@ docker run                                                                      
 or in interactive mode: 
 
 ```bash
-docker run                                                                      \
-   -it                                                                          \
-   --name payara                                                                \
-   -p 8080:8080                                                                 \
-   -p 8181:8181                                                                 \
-   -p 4848:4848                                                                 \
+docker run                                                              \
+   -it                                                                  \
+   --name payara                                                        \
+   -p 8080:8080                                                         \
+   -p 8181:8181                                                         \
+   -p 4848:4848                                                         \
    -v $(pwd)/artifact:/opt/payara/glassfish/domains/domain1/autodeploy  \
    ivonet/payara
 ```
@@ -59,23 +59,12 @@ If you put a war in the ./artifact folder it will be auto deployed to the server
 
 ## Admin Console
 
-The default login for the [admin console](https://localhost:4848) is `admin`/`secret`
-To change the password:
-
-on a running container (started without --rm)
-e.g.
 
 ```bash
 echo "Starting parara with container name payara"
-docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy ivonet/payara:latest
-echo "Changing admin password..."
-echo "Please follow instructions:"
-docker exec -it payara asadmin --user admin change-admin-password
-docker restart payara
+docker run -d --name payara -p 8080:8080 -p 8181:8181 -p 4848:4848 -e ADMIN_PASSWORD=secret -v $(pwd)/artifact:/opt/payara/payara5/glassfish/domains/domain1/autodeploy ivonet/payara:latest
 ```
-
 Now the password has been changed for that container as long as that container lives.
-New containers based on this image will again have the default password.
 
 If you do not want to expose the admin console you can just omit to expose port 4848.
 
